@@ -16,7 +16,7 @@ class BinaryClassifier(nn.Module):
     """
 
     ## TODO: Define the init function, the input params are required (for loading code in train.py to work)
-    def __init__(self, input_features, hidden_dim, output_dim, drop_factor):
+    def __init__(self, input_features, hidden_dim, output_dim):
         """
         Initialize the model by setting up linear layers.
         Use the input parameters to help define the layers of your model.
@@ -29,7 +29,7 @@ class BinaryClassifier(nn.Module):
         # define any initial layers, here
         self.fc1 = nn.Linear(input_features, hidden_dim)
         self.fc2 = nn.Linear(hidden_dim, output_dim)
-        self.drop = nn.Dropout(drop_factor)
+        self.drop = nn.Dropout(0.25)
         
         # sigmoid layer
         self.sig = nn.Sigmoid()
